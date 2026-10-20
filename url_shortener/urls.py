@@ -14,14 +14,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
 
 from url_shortener.shortener_app.views import short_url
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('short/', short_url, name='short_url'),
-    # here we define the URL pattern for the short_url view, which will handle requests to the /short/ endpoint.
     path('short/<str:hash_value>/', short_url, name='short_url_with_hash'),
 ]
